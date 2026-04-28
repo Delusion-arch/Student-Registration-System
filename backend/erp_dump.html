@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+
+<html lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr" data-theme="theme-default" data-assets-path="https://outr-erp.cet.edu.in/assets"
+  data-template="vertical-menu-template-free">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <title>OUTR - ERP - Student Profile</title>
+
+  <meta name="description" content="Odisha University of Technology and Research, OUTR - ERP" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://outr-erp.cet.edu.in/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="https://outr-erp.cet.edu.in/favicon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://outr-erp.cet.edu.in/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://outr-erp.cet.edu.in/favicon-16x16.png">
+  <link rel="manifest" href="https://outr-erp.cet.edu.in/site.webmanifest">
+  <link rel="mask-icon" href="https://outr-erp.cet.edu.in/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons. Uncomment required icon fonts -->
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/fonts/boxicons.css" />
+
+  
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/libs/datatables/datatables.min.css" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/libs/datatables/rowreorder.datatables.css" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/libs/datatables/rowreorder.bootstrap5.css" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/css/core.css"
+    class="template-customizer-core-css" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/css/theme-default.css"
+    class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/css/demo.css?v=3" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/css/dselect.min.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet"
+    href="https://outr-erp.cet.edu.in/assets/vendor/libs/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
+  <link rel="stylesheet" href="https://outr-erp.cet.edu.in/assets/vendor/libs/dropify/css/dropify.min.css" />
+
+
+
+  <!-- Page CSS -->
+
+  <!-- Helpers -->
+  <script src="https://outr-erp.cet.edu.in/assets/vendor/js/helpers.js"></script>
+
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="https://outr-erp.cet.edu.in/assets/js/config.js"></script>
+
+  <style>
+    body {
+      --bs-body-color: #556677;
+      background-color: #eeeef6;
+      /*background-color:#eaeaea;*/
+    }
+
+    .bg-light {
+      --bs-light-rgb: 250, 249, 255;
+      background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+    }
+
+    .app-brand-text.demo {
+      font-size: 1.66rem;
+      font-weight: 700;
+    }
+
+    .list-group-item {
+      color: var(--bs-body-color);
+    }
+
+     .layout-navbar.navbar-detached {
+      padding: 0 1rem;
+      width: calc(100% - (1rem * 2));
+    }
+
+    .layout-navbar.accent-student {
+      box-shadow: 0 8px 5px -5px #1976D2;
+    }
+
+    .layout-navbar.accent-hod {
+      box-shadow: 0 8px 5px -5px #FFA000;
+    }
+
+    .layout-navbar.accent-admin {
+      box-shadow: 0 8px 5px -5px #C2185B;
+    }
+
+    .nav-link .avatar.avatar-sm {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-link .avatar.avatar-xs {
+      width: 24px;
+      height: 24px;
+    }
+
+    .nav-link .avatar img {
+          }
+
+    .avatar.accent-student img {
+      /*padding:2px;
+  box-shadow: 0 0 3px 0px #1976D2;*/
+      /*box-shadow: 1px 2px 2px 1px #666666;*/
+      box-shadow: 0px 1px 3px 1px #dddddd;
+      border: 2px solid #fff;
+    }
+
+    .avatar.accent-hod img {
+      /*padding:2px;
+  box-shadow: 0 0 3px 0px #FFA000;*/
+      /*box-shadow: 1px 2px 2px 1px #666666;*/
+      box-shadow: 0px 1px 3px 1px #dddddd;
+      border: 2px solid #fff;
+    }
+
+    .avatar.accent-admin img {
+      /*padding:2px;
+  box-shadow: 0 0 3px 0px #C2185B;*/
+      /*box-shadow: 1px 2px 2px 1px #666666;*/
+      box-shadow: 0px 1px 3px 1px #dddddd;
+      border: 2px solid #fff;
+    }
+
+    .bg-accent-student {
+      background-color: #1976D2 !important;
+    }
+
+    .bg-accent-hod {
+      background-color: #FFA000 !important;
+    }
+
+    .bg-accent-admin {
+      background-color: #C2185B !important;
+    }
+
+    .bg-label-accent-student {
+      color: #1976D2;
+      background-color: #e6f1fc !important;
+    }
+
+    .bg-label-accent-hod {
+      color: #FFA000;
+      background-color: #fff5e5 !important;
+    }
+
+    .bg-label-accent-admin {
+      color: #C2185B;
+      background-color: #fce5ee !important;
+    }
+
+    /*.card.accent-student {
+  background-color:#1976D2 !important;
+}
+.card.accent-hod {
+  background-color:#fff5e5 !important;
+}
+.card.accent-admin {
+  background-color:#fce5ee !important;
+}*/
+
+
+    .dropdown-user .dropdown-menu .dropdown-item {
+      line-height: 1.3;
+    }
+
+    .dropdown-user .dropdown-menu .dropdown-item small {
+      line-height: 1;
+      color: #999;
+    }
+
+    .dropdown-menu.dropdown-menu-sm {
+      /*min-width: 5rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0;*/
+      padding: 0.2rem 0;
+    }
+
+    .dropdown-menu.dropdown-menu-sm .dropdown-item {
+      /*min-width: 5rem;*/
+      font-size: 0.875rem;
+      line-height: 1.2;
+      padding: 0.35rem 1.25rem;
+    }
+
+    .btn-xxs,
+    .btn-group-xxs>.btn {
+      padding: 0 0.5rem;
+      font-size: 0.7rem;
+      border-radius: 0.125rem;
+      line-height: 1.3;
+    }
+
+    .btn-xxs>.bx,
+    .btn-group-xxs>.btn>.bx {
+      font-size: 0.7rem;
+    }
+
+    .modal-header {
+      padding: 1rem 1rem 0.25rem;
+      border-bottom: 1px solid #696cff;
+    }
+
+    .modal-footer {
+      padding: 0.25rem 1rem 1rem;
+    }
+
+    .modal-body {
+      padding: 1rem;
+    }
+
+    .btn .bx {
+      margin-top: -4px;
+    }
+
+    .bx>.bx {
+      margin-left: -9px;
+      margin-top: 9px;
+      font-size: 0.75rem;
+    }
+
+    .bx.bx-sm {
+      font-size: 1.75rem !important;
+      margin-top: -2px;
+    }
+
+    .bx.bx-sm>.bx {
+      margin-left: -12px;
+      margin-top: 12px;
+      font-size: 0.85rem;
+    }
+
+    .bx.bx-sm>.bx.bx-icon-center {
+      margin-left: -18px;
+      margin-top: -10px;
+      font-size: 0.85rem;
+    }
+
+    .list-group.plus-bkg .list-group-item-action:hover,
+    .list-group.plus-bkg .list-group-item-action:focus {
+      background-image: url("https://outr-erp.cet.edu.in/assets/img/ui/plus.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    .list-group.minus-bkg .list-group-item-action:hover,
+    .list-group.minus-bkg .list-group-item-action:focus {
+      background-image: url("https://outr-erp.cet.edu.in/assets/img/ui/minus.png");
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    #loading-indicator {
+      background-color: rgba(0, 0, 0, .5);
+      bottom: 0;
+      box-sizing: border-box;
+      font-size: 1px;
+      height: 100%;
+      left: 0;
+      margin: 0 !important;
+      padding: 0 !important;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 2147483646
+    }
+
+    #loading-indicator::before {
+      background: url("https://outr-erp.cet.edu.in/assets/img/ui/loading.gif") center center no-repeat transparent;
+      content: "";
+      height: 70px;
+      margin-left: -35px;
+      margin-top: -70px;
+      width: 70px;
+      z-index: 2
+    }
+
+    #loading-indicator::after {
+      background: #fff;
+      border-radius: 5px;
+      color: #000;
+      content: attr(data-content);
+      font-family: arial;
+      font-size: 17px;
+      height: 110px;
+      line-height: 98px;
+      margin-left: -150px;
+      margin-top: -75px;
+      padding-top: 35px;
+      text-align: center;
+      width: 300px;
+      z-index: 1
+    }
+
+    #loading-indicator::after,
+    #loading-indicator::before {
+      box-sizing: border-box;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+    }
+
+    .form-control,
+    .input-group-text,
+    .form-select {
+      color: #333;
+    }
+
+
+    #upload-confirm-area .nav-tabs .nav-item .nav-link:not(.active) {
+      /*background-color:#e7e7ff;*/
+    }
+
+    #upload-confirm-area .nav-tabs .nav-item .nav-link.active {
+      /*background-color:#696cff;*/
+      font-weight: bold;
+    }
+
+    .table-sm thead tr th {
+      font-size: 11px;
+      padding: 3px;
+    }
+
+    .table-sm tbody tr td {
+      font-size: 12px;
+      padding: 3px;
+    }
+
+    .table-sm tbody tr td.err {
+      font-size: 12px;
+      background-color: #ffe0db;
+      /*white-space:normal !important;*/
+    }
+
+    .table-sm tbody tr td.err ul {
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style-position: inside;
+    }
+
+
+    .table-sm tbody tr td .form-check.form-switch {
+      display: inline-block;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      min-height: 1rem;
+    }
+
+    .table-sm tbody tr td .form-check.form-switch input {
+      font-size: 0.8rem;
+    }
+
+    table.table .table-secondary {
+      --bs-table-bg: #cccccc;
+    }
+
+    .pagination .page-link {
+      padding: 0.4rem;
+    }
+
+    .dt-length {
+      float: left;
+    }
+
+    .dt-info {
+      /*float:left;*/
+    }
+
+    .dt-paging {
+      float: right;
+
+    }
+
+    .dt-buttons {
+      float: left;
+      margin-right: 5px;
+    }
+
+    tr.selected>td>.dropdown>button.dropdown-toggle {
+      color: #ddd;
+    }
+
+    .dataTable tfoot {
+      display: table-header-group;
+    }
+
+    .dataTable tfoot tr th,
+    .dataTable tfoot tr td,
+    .dataTable tbody tr th,
+    .dataTable tbody tr td,
+    .dataTable thead tr th {
+      font-size: 13px;
+      padding: 0.4rem;
+    }
+
+    .dataTable tbody tr td.dt-control {
+      font-size: 14px;
+    }
+
+
+    .dataTable-holder {
+      padding: 0 0px 4px 0px;
+    }
+
+    .dataTables_wrapper .form-control,
+    .dt-container .form-control {
+      font-size: 0.8rem;
+      padding: 0.4rem;
+      border-radius: 0;
+    }
+
+    .table-striped>tbody>tr:nth-of-type(2n+1)>* {
+      color: #333;
+    }
+
+    .table-striped>tbody>tr:nth-of-type(2n)>* {
+      color: #333;
+    }
+
+    table.table.dataTable.table-striped>tbody>tr:nth-of-type(2n+1)>* {
+      --dt-row-stripe: 80, 80, 80;
+      box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), 0.05);
+      color: #333;
+    }
+
+    table.table.dataTable.table-striped>tbody>tr:nth-of-type(2n)>* {
+      color: #333;
+    }
+
+    table.table.dataTable.table-hover>tbody>tr:hover>* {
+      --dt-row-hover: 0, 0, 0;
+      box-shadow: inset inset 0 0 0 9999px rgba(var(--dt-row-hover), 0.075);
+    }
+
+    .dataTables_wrapper .page-link {
+      padding: 0.45rem;
+    }
+
+    .dataTables_info,
+    .dataTables_paginate {
+      padding: 0 5px;
+    }
+
+    .table:not(.table-dark) th {
+      color: #89a;
+    }
+
+    .table-sm.dataTable tfoot tr th,
+    .table-sm.dataTable tfoot tr td,
+    .table-sm.dataTable tbody tr th,
+    .table-sm.dataTable tbody tr td,
+    .table-sm.dataTable thead tr th {
+      padding: 0.3rem 0.15rem;
+    }
+
+    .table-sm.dataTable tbody tr td {
+      padding: 0.13rem 0.15rem;
+    }
+
+    table.dataTable thead>tr>th.dt-orderable-asc span.dt-column-order,
+    table.dataTable thead>tr>th.dt-orderable-desc span.dt-column-order,
+    table.dataTable thead>tr>th.dt-ordering-asc span.dt-column-order,
+    table.dataTable thead>tr>th.dt-ordering-desc span.dt-column-order,
+    table.dataTable thead>tr>td.dt-orderable-asc span.dt-column-order,
+    table.dataTable thead>tr>td.dt-orderable-desc span.dt-column-order,
+    table.dataTable thead>tr>td.dt-ordering-asc span.dt-column-order,
+    table.dataTable thead>tr>td.dt-ordering-desc span.dt-column-order {
+      right: 5px;
+    }
+
+    .card-header {
+      padding: 1rem 1rem 0.6rem;
+      /*border-bottom:1px solid #ddd;*/
+    }
+
+    .card-header .btn {
+      margin-top: -5px;
+    }
+
+    .card-header small {
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .card-body {
+      padding: 1.5rem 1rem;
+    }
+
+    .card-body.demo-vertical-spacing {
+      padding: 1rem;
+    }
+
+    .input-group .btn {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    #config-items-area .demo-vertical-spacing>.card-title {
+      margin-top: 0 !important;
+      margin-bottom: 0.875rem !important;
+    }
+
+    #config-items-area .alert {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    #config-items-area .input-group-text {
+      background-color: #f6f7f8;
+    }
+
+    #config-items-area .input-group input[type="text"],
+    #config-items-area .input-group input[type="tel"],
+    #config-items-area .input-group textarea {
+      padding-left: 2px;
+      padding-right: 2px;
+      font-size: 1rem;
+    }
+
+    #config-items-area .input-group-text {
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 1rem;
+    }
+
+    #config-items-area .demo-vertical-spacing>* {
+      margin-top: 0.5rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    #coms_api_key {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .backup-itm.active::after {
+      content: "\25C2";
+    }
+
+    .cfg-time,
+    #last_api_key_generated {
+      font-size: 0.8rem;
+      color: #b4bdc6;
+    }
+
+    .app-brand .layout-menu-toggle {
+      background-color: #a1acb8;
+      border-color: #ffffff;
+    }
+
+    .app-brand .layout-menu-toggle:hover {
+      background-color: #d0d0ff;
+    }
+
+    .app-brand .layout-menu-toggle i {
+      width: 1.3rem;
+      height: 1.3rem;
+      padding-top: 1px;
+      padding-left: 2px;
+    }
+
+    .menu-vertical .app-brand {
+      padding-left: 1rem;
+    }
+
+    .layout-menu.menu-vertical .app-brand .layout-menu-toggle i.bx-chevron-left {
+      display: block;
+    }
+
+    .layout-menu.menu-vertical .app-brand .layout-menu-toggle i.bx-chevron-right {
+      display: none;
+    }
+
+    .layout-menu.menu-vertical .app-brand .app-brand-text {
+      display: inline;
+    }
+
+    .layout-menu.menu-vertical .app-brand .app-brand-logo {
+      display: inline;
+      margin-right: 0;
+      margin-left: -6px;
+    }
+
+    .app-brand-logo img {
+      width: 40px;
+    }
+
+    .menu-icon.icon-online::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 26px;
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+      background-color: #71dd37;
+      box-shadow: 0 0 0 2px #fff;
+    }
+
+    .modal-dialog dl dt,
+    .modal-dialog dl dd {
+      font-size: 0.8rem;
+      min-height: 20px;
+    }
+
+
+    .modal-dialog dl.dl-striped dt {
+      background-color: #eee;
+    }
+
+    .modal-dialog dl.dl-striped dd {
+      border-bottom: 1px dashed #eee;
+      margin-bottom: 0;
+      padding-bottom: 3px;
+    }
+
+    .custom-dl-holder dl.dl-striped dt {
+      background-color: #eee;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+    }
+
+    .custom-dl-holder dl.dl-striped dd {
+      border-bottom: 1px dashed #eee;
+      margin-bottom: 0;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+    }
+
+    .form-label.required::after,
+    .card-subtitle.required::after {
+      content: "*";
+      color: #d00;
+      margin-left: 2px;
+    }
+
+
+    .datepicker table tr td,
+    .datepicker table tr th {
+      border-radius: 0;
+    }
+
+    .datepicker table tr td.day:hover,
+    .datepicker table tr td.focused {
+      background: rgba(105, 108, 255, 0.16);
+    }
+
+    .datepicker table tr td.active.active.focus,
+    .datepicker table tr td.active.active:focus,
+    .datepicker table tr td.active.active:hover,
+    .datepicker table tr td.active.highlighted.active.focus,
+    .datepicker table tr td.active.highlighted.active:focus,
+    .datepicker table tr td.active.highlighted.active:hover,
+    .datepicker table tr td.active.highlighted:active.focus,
+    .datepicker table tr td.active.highlighted:active:focus,
+    .datepicker table tr td.active.highlighted:active:hover,
+    .datepicker table tr td.active:active.focus,
+    .datepicker table tr td.active:active:focus,
+    .datepicker table tr td.active:active:hover {
+      background-color: #696cff;
+    }
+
+    .datepicker table tr td.active.active,
+    .datepicker table tr td.active.highlighted.active,
+    .datepicker table tr td.active.highlighted:active,
+    .datepicker table tr td.active:active {
+      background-color: #696cff;
+      border-color: #696cff;
+    }
+
+    .datepicker table tr td.disabled,
+    .datepicker table tr td.disabled:hover {
+      background: #f9f9f9;
+    }
+
+    .table.return-product th {
+      font-size: 11px;
+      padding: 3px;
+    }
+
+    .table.return-product td {
+      font-size: 12px;
+      padding: 3px;
+    }
+
+    .table.return-product .form-control {
+      text-align: center;
+    }
+
+    .table.return-product input[type='checkbox'] {
+      cursor: pointer;
+    }
+
+    .input-group-text.disabled {
+      background-color: #eceef1;
+    }
+
+    .bg-menu-theme {
+      /*background-color:#fdfdfd !important;*/
+      /*background-color:#f8f8f8 !important;*/
+    }
+
+    .bg-menu-theme .menu-inner-shadow {
+      /*background:linear-gradient(#fcfcfc 40%, rgba(255, 255, 255, 0.13) 95%, rgba(255, 255, 255, 0)) ;
+  background-image:url("");
+  background-repeat:no-repeat;
+  background-position: center top;*/
+      /*background:linear-gradient(#fdfdfd 40%, rgba(252, 252, 252, 0.13) 95%, rgba(248, 248, 248, 0)) ;
+  background-image:url("");
+  background-repeat:no-repeat;
+  background-position: center top;*/
+      /*background: linear-gradient(#fdfdfd 41%, rgba(253, 252, 253, 0.11) 95%, rgba(253, 253, 253, 0));*/
+      background: linear-gradient(#fdfdfd 40%, rgba(252, 252, 252, 0.13) 95%, rgba(248, 248, 248, 0));
+    }
+
+    /*.bg-menu-theme > .menu-inner {
+  background-color:#fafafa;
+}*/
+
+    .bg-menu-theme .menu-link,
+    .bg-menu-theme .menu-horizontal-prev,
+    .bg-menu-theme .menu-horizontal-next {
+      color: var(--bs-body-color);
+    }
+
+    html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item.open>.menu-link.menu-toggle {
+      background-color: rgba(196, 196, 196, 0.2);
+    }
+
+    .menu-vertical .menu-inner>.menu-item .menu-link {
+      margin-left: 0.7rem;
+      margin-right: 0.6rem;
+    }
+
+    .bg-menu-theme .menu-inner>.menu-item.active>.menu-link {
+      background-color: rgba(105, 108, 255, 0.13) !important;
+    }
+
+    .bg-menu-theme .menu-sub .menu-item.active>.menu-link:not(.menu-toggle) {
+      background-color: #f6f6f6;
+    }
+
+    .dashboard-grid-items .mnu-block-link:hover .card {
+      background-color: #e7e7ff !important;
+    }
+
+    #stud-summary .branch-item {
+      font-size: 13px;
+    }
+
+    #stud-summary .branch-item .badge {
+      padding: 4px;
+    }
+
+    #go-top.buy-now .btn-buy-now {
+      bottom: 0.5rem;
+      right: 1rem;
+      box-shadow: 0 1px 20px 1px #999;
+      opacity: 0.25;
+    }
+
+    #go-top.buy-now .btn-buy-now:hover {
+      opacity: 0.75;
+    }
+
+    .toast.bs-toast .toast-header {
+      padding: 0.75rem 0.75rem 0.5rem 0.75rem;
+    }
+
+    .toast-body {
+      font-size: 0.8rem;
+      padding: 0.75rem;
+    }
+
+    .toast#info-toast .btn-close {
+      border-radius: 0.375rem;
+      padding: 0.4rem;
+      background-size: 0.625em;
+      transition: all 0.23s ease 0.1s;
+      background-color: #fff;
+      box-shadow: 0 0.125rem 0.25rem rgba(161, 172, 184, 0.4);
+    }
+
+    .fee-head-row label {
+      font-size: 0.8rem;
+    }
+
+    .blockquote-footer {
+      font-size: 0.75rem;
+    }
+
+    .modal-title small {
+      font-size: 0.75rem;
+      font-weight: normal;
+      color: #999;
+      display: block;
+      margin-top: -3px;
+    }
+
+    .alert-danger {
+      background-color: #ff3e1d;
+      color: #fff;
+    }
+
+    .menu-vertical .menu-sub {
+      padding-top: 0.2rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #f0f0f0;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .menu-vertical .menu-item.active.open .menu-sub {
+      /*background-color:#f9f9fc;
+  border-bottom:1px solid #f6f6f8;
+  border-top:1px solid #f6f6f8;*/
+      /*border-top:1px solid #eeeefc;
+  border-bottom:1px solid #eeeefc;*/
+      /*background-color:rgba(172, 196, 255, 0.13) !important;*/
+      background-color: rgba(216, 216, 232, 0.13) !important;
+      border-top: 1px solid #ececff;
+      border-bottom: 1px solid #ececff;
+    }
+
+    .bg-menu-theme .menu-item.active.open .menu-sub .menu-item.active>.menu-link:not(.menu-toggle) {
+      background-color: rgba(128, 128, 192, 0.13) !important;
+    }
+
+    .menu-vertical>.menu-inner>.menu-item.open>.menu-link {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+
+    .menu-vertical>.menu-inner>.menu-item.active.open>.menu-link {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .bg-menu-theme .menu-inner>.menu-item.active:before {
+      /*background:none;*/
+    }
+
+    @media (min-width: 1200px) {
+      .layout-wrapper:not(.layout-horizontal) .bg-menu-theme .menu-inner>.menu-item.active::before {
+        height: 2rem;
+      }
+
+      .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: 0;
+      }
+
+      .menu-vertical>.menu-inner>.menu-item>.menu-link {
+        /*margin-left:0.5rem;*/
+      }
+
+      .menu-vertical .menu-item .menu-link {
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 0.85rem;
+      }
+
+      /*.menu-vertical .menu-sub {
+  padding-top:0.1rem;
+  background-color:#fcfcfc;
+  border-bottom:1px solid #f9f9f9;
+  border-top:1px solid #f9f9f9;
+}*/
+      .menu-vertical .menu-sub .menu-item {
+        /*padding-left:0.3rem;*/
+      }
+
+      .menu-vertical .menu-sub .menu-item .menu-link {
+        padding-top: 0.35rem;
+        padding-bottom: 0.35rem;
+        padding-left: 1.3rem;
+        font-size: 0.8rem;
+      }
+
+      .bg-menu-theme .menu-sub>.menu-item>.menu-link::before {
+        /*left: 1.1rem;*/
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent !important;
+      }
+
+      .bg-menu-theme .menu-sub>.menu-item.active>.menu-link:not(.menu-toggle)::before {
+        /*left: 0.8rem;*/
+        left: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .bg-menu-theme .menu-inner>.menu-item.open .menu-item.active>.menu-link::before {
+        box-shadow: none;
+        border: 0 none !important;
+        background-color: transparent !important;
+      }
+
+      .menu-item.open:not(.menu-item-closing)>.menu-toggle::after {}
+
+      .menu-icon.bx,
+      .menu-icon.bxs {
+        line-height: 1.1;
+      }
+
+      .layout-wrapper:not(.layout-horizontal) .bg-menu-theme .menu-inner>.menu-item.active.open::before {
+        display: none;
+      }
+
+      .layout-wrapper:not(.layout-horizontal) .bg-menu-theme .menu-inner>.menu-item.open .menu-item.active::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 0.25rem;
+        height: 2rem;
+        border-radius: 0.375rem 0 0 0.375rem;
+        background: #696cff;
+        /*background: var(--bs-body-color);
+  background:none;*/
+      }
+
+      /*.bg-menu-theme .menu-sub > .menu-item.active > .menu-link:not(.menu-toggle) {
+  background-color:#fbfbfb;
+}*/
+
+      .layout-menu.menu-vertical .app-brand .layout-menu-toggle {
+        border-width: 3px;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical {
+        width: 4.1rem;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand {
+        width: 4.1rem;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .app-brand-logo {
+        margin-right: 0;
+        margin-left: -6px;
+      }
+
+      .app-brand .layout-menu-toggle {
+        box-shadow: 3px 0 1px 0px #ccc;
+        left: 14rem;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .layout-menu-toggle {
+        left: 3.2rem;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .layout-menu-toggle i.bx-chevron-left {
+        display: none;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .layout-menu-toggle i.bx-chevron-right {
+        display: block;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .app-brand-text {
+        display: none;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .app-brand .app-brand-logo {
+        display: inline;
+      }
+
+      .menu-vertical,
+      .menu-vertical .menu-block,
+      .menu-vertical .menu-inner>.menu-item,
+      .menu-vertical .menu-inner>.menu-header {
+        width: 15rem;
+      }
+
+      .layout-menu-collapse .menu-vertical,
+      .layout-menu-collapse .menu-vertical .menu-block,
+      .layout-menu-collapse .menu-vertical .menu-inner>.menu-item,
+      .layout-menu-collapse .menu-vertical .menu-inner>.menu-header {
+        width: 5rem;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .menu-link div {
+        display: none;
+      }
+
+      .layout-menu-collapse .layout-menu.menu-vertical .menu-link .menu-icon {
+        width: 3.2rem;
+      }
+
+      @media (min-width: 1200px) {
+        .layout-menu-fixed:not(.layout-menu-collapsed) .layout-page {
+          padding-left: 15.2rem;
+        }
+      }
+
+      .layout-menu-fixed.layout-menu-collapse .layout-page {
+        padding-left: 4.3rem;
+      }
+
+      .layout-menu-fixed.layout-menu-collapse .menu-vertical .menu-sub .menu-link {
+        /*padding-left: 5rem;
+  width:5rem;*/
+      }
+
+      .layout-menu-fixed.layout-menu-collapse .menu-vertical .menu-link {
+        white-space: nowrap;
+      }
+
+    }
+
+    @media only screen and (max-width: 1400px) {
+
+      .dataTable tfoot tr th,
+      .dataTable tbody tr th,
+      .dataTable thead tr th {
+        font-size: 11px;
+      }
+
+      .table-sm tbody tr td.err {
+        font-size: 10px;
+      }
+
+      .dataTable tfoot tr td,
+      .dataTable tbody tr td {
+        font-size: 11px;
+      }
+
+      .table-sm tbody tr td {
+        font-size: 11px;
+        padding: 3px;
+      }
+
+      .dataTable tbody tr td.dt-control {
+        font-size: 14px;
+      }
+
+      .dataTables_wrapper .form-control,
+      .dt-container .form-control {
+        font-size: 11px;
+        padding: 0.2rem;
+      }
+
+      div.dataTables_wrapper div.dataTables_info {
+        font-size: 0.8rem;
+      }
+
+      #coms_api_key {
+        font-size: 0.8rem;
+      }
+
+      #config-items-area .input-group input[type="text"],
+      #config-items-area .input-group input[type="tel"],
+      #config-items-area .input-group textarea {
+        font-size: 0.8rem;
+      }
+
+      #config-items-area .input-group-text {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 1199.98px) {
+      .layout-navbar.navbar-detached {
+        width: calc(100vw - (100vw - 100%) - (1rem * 2)) !important;
+      }
+
+      .bg-menu-theme .menu-inner>.menu-item.active::before {
+        background: none;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+
+      .dt-info,
+      .dt-length {
+        float: none;
+      }
+
+      .dt-paging {
+        float: none;
+      }
+
+      .dt-buttons {
+        display: inline-block;
+      }
+
+
+      #go-top.buy-now .btn-buy-now {
+        display: none;
+      }
+
+      #collapseFilter .form-label {
+        font-size: 0.7rem;
+      }
+
+    }
+
+    @media only print {
+      #go-top.buy-now .btn-buy-now {
+        display: none;
+      }
+
+      .dataTable td>div.dropdown {
+        display: none;
+      }
+
+      .dt-buttons {
+        display: none;
+      }
+
+      #layout-menu .menu-item.active {
+        display: none;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+
+    .bg-footer-theme {
+      background-color: #eeeef6 !important;
+    }
+
+    body.custom-prn-mode {
+      background-color: #ffffff !important;
+    }
+
+    body.custom-prn-mode>.layout-wrapper {
+      display: none !important;
+    }
+
+    body.custom-prn-mode>#go-top {
+      display: none !important;
+    }
+  </style>
+
+  <style>
+.stud-profile dl.dl-striped dt {
+    /*background-color: #eee;*/
+	font-weight:400;
+}
+.stud-profile dl.dl-striped dd {
+    /*background-color: #eee;*/
+	font-weight:700;
+}
+.stud-profile dl dt, .stud-profile dl dd {
+    font-size: 0.75rem;
+    min-height: 20px;
+}
+.stud-profile dl dt.small, .stud-profile dl dd.small {
+    font-size: 0.6rem;
+}
+
+.modal-body label {
+	margin-bottom:0;
+}
+
+.table-sm thead tr th {
+	font-size:10px;
+}
+
+@media only screen and (max-width: 991px)  {	
+	.stud-profile dl dt, .stud-profile dl dd {
+		font-size: 0.5rem;
+		min-height: 18px;
+	}
+}
+@media only screen and (max-width: 575px)  {
+	.stud-profile dl dt, .stud-profile dl dd {
+		font-size: 0.7rem;
+		min-height: 18px;
+	}
+	.modal-body small {
+		font-size: 0.7rem;
+	}
+}
+</style>
+</head>
+
+<body>
+    
+    <!-- Layout wrapper -->
+    <div
+      class="layout-wrapper layout-content-navbar">
+
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+
+
+          <div class="app-brand demo">
+            
+            <span class="app-brand-logo demo">
+              <img src="https://outr-erp.cet.edu.in/assets/images/logo-alt.png" alt="Logo" />
+            </span>
+
+            <span class="app-brand-text demo menu-text ms-1">OUTR - ERP</span>
+
+
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto  " id="collapse-mnu">
+              <i class="bx bx-chevron-left align-middle"></i>
+              <i class="bx bx-chevron-right align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item">
+              <a href="https://outr-erp.cet.edu.in/" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle" data-bs-toggle="tooltip" data-bs-placement="right"
+                  data-bs-title="Dashboard"></i>
+                <div data-i18n="Dashboard">Dashboard</div>
+              </a>
+            </li>
+
+            
+            
+
+
+
+            
+
+            
+
+            
+              
+              
+                              <li
+                  class="menu-item active">
+                  <a href="https://outr-erp.cet.edu.in/stud-profile" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-user" data-bs-toggle="tooltip" data-bs-placement="right"
+                      data-bs-title="Update Profile"></i>
+                    <div data-i18n="Update Profile">Student Profile</div>
+                  </a>
+                </li>
+              
+                            <li
+                class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/stud-fee-pay-history" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-credit-card" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Transaction History"><i class="tf-icons bx bx-history"></i></i>
+                  <div data-i18n="Transaction History">Transaction History</div>
+                </a>
+              </li>
+
+              <li
+                class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/stud-misc-fee" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-wallet-alt" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Fee Payment"></i>
+                  <div data-i18n="Miscellaneous Fees">Miscellaneous Fees </div>
+                </a>
+              </li>
+
+              <li
+                class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/stud-misc-pay-history" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-wallet-alt" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Misc Transaction History"><i class="tf-icons bx bx-history"></i></i>
+                  <div data-i18n="Misc Transaction History">Misc Transaction History</div>
+                </a>
+              </li>
+
+              
+              
+            
+            
+
+            
+              <li class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/sem-reg" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-notepad" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Semester Registration"></i>
+                  <div data-i18n="Semester Registration">Semester Registration</div>
+                </a>
+              </li>
+
+            
+                          <li
+                class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/attendance/attendance-summary" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-calendar-check" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-title="Attendance Summary"></i>
+                  <div data-i18n="Attendance Summary">Attendance</div>
+                </a>
+              </li>
+            
+            
+
+            
+            
+
+            
+
+            
+
+
+            
+            
+            
+            
+            
+            
+            
+
+                          <li class="menu-item">
+                <a href="https://outr-erp.cet.edu.in/logout" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-power-off text-danger" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Log Out"></i>
+                  <div data-i18n="Settings">Log Out</div>
+                </a>
+              </li>
+            
+
+            
+
+            
+
+            
+            
+
+            
+            
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+
+          <div class="container-fluid justify-content-center bg-dark text-center maintenance-bar" style="display:none;">
+            <small class="text-warning">
+              Maintenance mode is ON
+            </small>
+          </div>
+
+          
+
+          <!-- Navbar -->
+          <nav
+            class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme accent-student "
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-2 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4 text-dark" href="javascript:void(0)">
+                <i class="bx bx-menu bx-md"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <h4 class="d-xl-none" style="margin-bottom:0;font-size:1.66rem;font-weight:700;">
+                    OUTR - ERP                  </h4>
+                  <h4 class="d-none d-xl-inline" style="margin-bottom:0;font-size:1.75rem;">Odisha University of Technology and Research                  </h4>
+                </div>
+              </div>
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar  accent-student">
+                      <img src="https://outr-erp.cet.edu.in/students/photo-thumb/23110669.jpg" alt class="w-px-32 h-px-32 rounded-circle" style="object-fit:cover;" />
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-2">
+                            <div class="avatar avatar-sm accent-student">
+                              <img src="https://outr-erp.cet.edu.in/students/photo-thumb/23110669.jpg" alt class="w-px-32 h-px-32 rounded-circle" style="object-fit:cover;" />
+                            </div>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block"
+                              style="max-width:300px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">PUNEET KUMAR DHAL</span>
+                            <small>(STUDENT)</small>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+
+                    
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+
+                    
+                    
+                    
+                                          <li>
+                        <a class="dropdown-item" href="https://outr-erp.cet.edu.in/stud-change-password">
+                          <i class="bx bx-key me-2"></i>
+                          <span class="align-middle">Change Password</span>
+                        </a>
+                      </li>
+                    
+
+                    <li>
+                      <a class="dropdown-item" href="https://outr-erp.cet.edu.in/logout">
+                        <i class="bx bx-power-off me-2 text-danger"></i>
+                        <span class="align-middle">Log Out</span>
+                      </a>
+                    </li>
+
+
+                  </ul>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper pt-2">
+
+            
+
+            <!-- Content -->
+            
+<div class="container-fluid flex-grow-1 container-p-y pt-2 px-3">
+  <h6 class="fw-bold mb-3"><span class="text-muted fw-light">Admission /</span> Edit Profile</h6>
+
+  
+
+  <div class="card mb-4 stud-profile">
+    <h4 class="card-header bg-light"><i class="bx bx-user bx-sm text-primary"></i>PUNEET KUMAR DHAL            </h4>
+    
+    <div class="card-body pt-3 pb-1">
+			          <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="basic" data-appno="23110669" href="#" title="Edit" ><i class="bx bxs-edit"></i></a>
+                </div>
+              </h5>
+		    	
+        <div class="d-sm-flex">
+          <div class="bd-highlight pe-3 pb-1">
+            <img src="https://outr-erp.cet.edu.in/students/photo/23110669.jpg" alt="student photo" class="d-block rounded" width="100" id="uploadedAvatar">
+            <img src="https://outr-erp.cet.edu.in/students/signature/23110669.jpg" alt="student signature" class="d-block rounded mt-1" width="100" id="uploadedAvatar">
+          </div>
+          <div class="py-0 px-0 flex-grow-1 bd-highlight">
+          	<div class="row">
+            	<div class="col-sm-6 p-0">
+
+                <dl class="row dl-striped m-0">
+                  <dt class="col-5 col-lg-4">Registration No:</dt>
+                  <dd class="col-7 col-lg-8 text-info">23110669                                      &nbsp;&nbsp;<img src="https://outr-erp.cet.edu.in/students/bcode/23110669.jpg" alt="23110669" height="25">
+                                     
+                  </dd>
+                  <dt class="col-5 col-lg-4">Application No:</dt>
+                  <dd class="col-7 col-lg-8 ">23110669</dd>
+                  <dt class="col-5 col-lg-4">Name:</dt>
+                  <dd class="col-7 col-lg-8">PUNEET KUMAR DHAL</dd>
+                  <dt class="col-5 col-lg-4">Rank:</dt>
+                  <dd class="col-7 col-lg-8"></dd>
+                  <dt class="col-5 col-lg-4">Admission Status:</dt>
+                  <dd class="col-7 col-lg-8 ">Admission Complete</dd>
+
+                </dl>
+                
+                </div>
+                
+                <div class="col-sm-6 p-0">
+                
+                <dl class="row dl-striped m-0">
+                  <dt class="col-5 col-lg-4">Joining Year:</dt>
+                  <dd class="col-7 col-lg-8">2023, <span style="font-weight:400;">Batch</span>(23)</dd>
+                  <dt class="col-5 col-lg-4">Semester:</dt>
+                  <dd class="col-7 col-lg-8">6th Semester</dd>
+                  <dt class="col-5 col-lg-4">Programme:</dt>
+                  <dd class="col-7 col-lg-8">B. Tech.</dd>
+                  <dt class="col-5 col-lg-4">Progr. Type:</dt>
+                  <dd class="col-7 col-lg-8">SSP</dd>
+                  <dt class="col-5 col-lg-4">Branch:</dt>
+                  <dd class="col-7 col-lg-8">Information Technology</dd>
+                  
+                                    
+                  
+                </dl>
+                
+                </div>
+                
+            </div>
+          
+          </div>
+        </div>
+        
+	    
+    </div>
+    
+    <hr class="my-0" />
+    
+    <div class="card-body pt-3 pb-1">
+    
+	    <div class="row">
+          <div class="col-sm-6 col-lg-4 px-0 py-1 mb-1 bg-light">
+            <dl class="row dl-striped m-0">
+              <dt class="col-12"><h5>Allotment Details 
+
+			            <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="allotment" data-appno="23110669" href="#" title="Edit" ><i class="bx bxs-edit"></i></a>
+                </div>
+		
+              </h5></dt>
+              <dt class="col-5 col-lg-5">Batch:</dt>
+              <dd class="col-7 col-lg-7">23</dd>
+              <dt class="col-5 col-lg-5">Joining Year:</dt>
+              <dd class="col-7 col-lg-7">2023</dd>
+              <dt class="col-5 col-lg-5">Admission Dt:</dt>
+              <dd class="col-7 col-lg-7"></dd>
+              <dt class="col-5 col-lg-5">Admission Type:</dt>
+              <dd class="col-7 col-lg-7">SSP</dd>
+              <dt class="col-5 col-lg-5">Fee Type:</dt>
+              <dd class="col-7 col-lg-7">General</dd>
+              <dt class="col-5 col-lg-5">Is TFW:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+              <dt class="col-5 col-lg-5">Is PC:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+              <dt class="col-5 col-lg-5">Seat Category:</dt>
+              <dd class="col-7 col-lg-7">Gen</dd>
+              <dt class="col-5 col-lg-5">Category:</dt>
+              <dd class="col-7 col-lg-7">GEN</dd>
+              <dt class="col-5 col-lg-5">Caste:</dt>
+              <dd class="col-7 col-lg-7">GEN</dd>
+              <dt class="col-5 col-lg-5">OJEE Rank:</dt>
+              <dd class="col-7 col-lg-7"></dd>
+              <dt class="col-5 col-lg-5">Is Lateral:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+              				
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Hostel</div>
+              </div>
+              <dt class="col-5 col-lg-5">Hostel Willingness:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+              <dt class="col-5 col-lg-5">Hostel Allocated:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+              <dt class="col-5 col-lg-5">Hostel Name:</dt>
+              <dd class="col-7 col-lg-7"></dd>
+			
+			              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Internal Sliding</div>
+              </div>
+              <dt class="col-5 col-lg-5">Interested in <br />Internal Sliding:</dt>
+              <dd class="col-7 col-lg-7">N</dd>
+            
+            </dl>
+            
+          </div>
+            
+          <div class="col-sm-6 col-lg-4 px-0 py-1 mb-1">
+            <dl class="row dl-striped m-0">
+              <dt class="col-12"><h5>Personal Details 
+
+			            <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="personal" data-appno="23110669" href="#" title="Edit" ><i class="bx bxs-edit"></i></a>
+                </div>
+		
+              </h5></dt>
+              <dt class="col-5 col-lg-4">DOB:</dt>
+              <dd class="col-7 col-lg-8">31/12/2004</dd>
+              <dt class="col-5 col-lg-4">Gender:</dt>
+              <dd class="col-7 col-lg-8">M</dd>
+              <dt class="col-5 col-lg-4">Father Name:</dt>
+              <dd class="col-7 col-lg-8">PRATAP CHANDRA DHAL</dd>
+              <dt class="col-5 col-lg-4 small">Father Occupation:</dt>
+              <dd class="col-7 col-lg-8">Banker</dd>
+              <dt class="col-5 col-lg-4">Father Aadhar:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Mother Name:</dt>
+              <dd class="col-7 col-lg-8">MAMITA DHAL</dd>
+              <dt class="col-5 col-lg-4 small">Mother Occupation:</dt>
+              <dd class="col-7 col-lg-8">Housewife</dd>
+              <dt class="col-5 col-lg-4">Mother Aadhar:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Annual Income:</dt>
+              <dd class="col-7 col-lg-8">0</dd>
+              <dt class="col-5 col-lg-4">Blood Group:</dt>
+              <dd class="col-7 col-lg-8">AB-</dd>
+              <dt class="col-5 col-lg-4">Mother Tongue:</dt>
+              <dd class="col-7 col-lg-8">Hindi</dd>
+              <dt class="col-5 col-lg-4">Religion:</dt>
+              <dd class="col-7 col-lg-8">HINDUISM</dd>
+              <dt class="col-5 col-lg-4">Nationality:</dt>
+              <dd class="col-7 col-lg-8">INDIAN</dd>
+              <dt class="col-5 col-lg-4">Country:</dt>
+              <dd class="col-7 col-lg-8">INDIA</dd>
+              
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Student Aadhar</div>
+              </div>
+              <dt class="col-5 col-lg-4">Aadhar No:</dt>
+              <dd class="col-7 col-lg-8">392394873006</dd>
+
+              
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Identification Marks</div>
+              </div>
+                            <dt class="col-5 col-lg-4">Mole or Similar:</dt>
+              <dd class="col-7 col-lg-8">Mole on left ear</dd>
+
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Bank Info</div>
+              </div>
+                            <dt class="col-5 col-lg-4">Account No:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Bank Name:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Bank Branch:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">IFSC Code:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              
+            </dl>
+            
+          </div>
+          
+          <div class="col-sm-6 col-lg-4 px-0 py-1 mb-1 bg-light">
+            <dl class="row dl-striped m-0">
+              <dt class="col-12"><h5>Communication Details 
+
+			            <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="communication" data-appno="23110669" href="#" title="Edit" ><i class="bx bxs-edit"></i></a>
+                </div>
+		
+              </h5></dt> 	
+                                          <dt class="col-5 col-lg-4">Landline:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Parent Mobile:</dt>
+              <dd class="col-7 col-lg-8">8455861988</dd>
+              <dt class="col-5 col-lg-4">Student Mobile <small style="text-transform:none;">(WhatsApp)</small>:</dt>
+              <dd class="col-7 col-lg-8">8637238424 <i class="bx bx-shield-x text-danger"></i></dd>
+              <dt class="col-5 col-lg-4">Student Email:</dt>
+              <dd class="col-7 col-lg-8"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6010150e0505140b150d01120408010c20070d01090c4e030f0d">[email&#160;protected]</a> <i class="bx bx-check-shield text-success"></i></dd>
+              <dt class="col-5 col-lg-4">Parent Email:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Correspondence Address</div>
+              </div>
+                            <dt class="col-5 col-lg-4">Guardian:</dt>
+              <dd class="col-7 col-lg-8">Pratap Chandra Dhal</dd>
+              <dt class="col-5 col-lg-4">Door No:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Street:</dt>
+              <dd class="col-7 col-lg-8">Kalinga vihar</dd>
+              <dt class="col-5 col-lg-4">Villege/City:</dt>
+              <dd class="col-7 col-lg-8">Bhubaneswar</dd>
+              <dt class="col-5 col-lg-4">State:</dt>
+              <dd class="col-7 col-lg-8">ODISHA</dd>
+              <dt class="col-5 col-lg-4">District:</dt>
+              <dd class="col-7 col-lg-8">Khordha</dd>
+              <dt class="col-5 col-lg-4">Pin code:</dt>
+              <dd class="col-7 col-lg-8">751019</dd>
+              <dt class="col-5 col-lg-4">Combined:</dt>
+              <dd class="col-7 col-lg-8">Kalinga vihar, Bhubaneswar, Khordha, Odisha, 751019</dd>
+
+
+              <div class="divider mt-0 mb-1 text-muted">
+                <div class="divider-text">Permanent Address</div>
+              </div>
+			                <dt class="col-5 col-lg-4">Guardian:</dt>
+              <dd class="col-7 col-lg-8">Pratap Chandra Dhal</dd>
+              <dt class="col-5 col-lg-4">Door No:</dt>
+              <dd class="col-7 col-lg-8"></dd>
+              <dt class="col-5 col-lg-4">Street:</dt>
+              <dd class="col-7 col-lg-8">Kalinga vihar</dd>
+              <dt class="col-5 col-lg-4">Villege/City:</dt>
+              <dd class="col-7 col-lg-8">Bhubaneswar</dd>
+              <dt class="col-5 col-lg-4">State:</dt>
+              <dd class="col-7 col-lg-8">Odisha</dd>
+              <dt class="col-5 col-lg-4">District:</dt>
+              <dd class="col-7 col-lg-8">Khordha</dd>
+              <dt class="col-5 col-lg-4">Pin code:</dt>
+              <dd class="col-7 col-lg-8">751019</dd>
+              <dt class="col-5 col-lg-4">Combined:</dt>
+              <dd class="col-7 col-lg-8">Kalinga vihar, Bhubaneswar, Khordha, Odisha, 751019</dd>
+              
+            </dl>
+            
+          </div>
+            
+        </div>
+    
+    </div>
+    
+        
+    <div class="card-body pt-3 pb-1">
+    
+	    <div class="row">
+          <div class="col-sm-12 px-0 py-1 mb-1 bg-light">
+            <dl class="row dl-striped m-0">
+              <dt class="col-12"><h5>Qualification Details 
+
+			            <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="qualification-add" data-appno="23110669" href="#" title="Add Qualification" ><i class="bx bxs-add-to-queue"></i></a>
+                </div>
+		
+              </h5></dt>
+              
+              <div class="col-sm-12 table-responsive1">
+              
+                <table id="table_qualification" class="table table-sm table-striped " style="width:100%">
+                  <thead class="bg-dark">
+                      <tr>
+
+		                          <th width="8%" class="no-sort" style="text-align:center;">Action</th>
+		
+                          <th width="13%" class="text-center">Qualification</th>
+                          <th width="15%">Institutation</th>
+                          <th>Board/ University</th>
+                          <th width="7%" class="text-center">Pass Month Year</th>
+                          <th width="7%" class="text-center">Max Marks</th>
+                          <th width="8%" class="text-center">Marks/ Points Secured</th>
+                          <th width="8%" class="text-center">Grade/ Percentage</th>
+                          <th width="8%" class="text-center">Marksheet &amp; Certificate</th>
+                      </tr>
+                  </thead>
+                  <tbody class="row_position qual-row-holder">
+                  	                      <tr class="qual-row-none" style="display:none;">
+                          <td colspan="9">Add Qualifications using the button above ...</td>
+                      </tr>
+                  	                  	  <tr class="qual-row" id="qual-row-11365">
+
+		                          <td class="no-sort" style="text-align:center;">
+                          <div class="btn-group btn-group-sm" role="group" aria-label="">
+                              <a class="btn btn-sm btn-primary edit-profile-part" data-part="qualification-edit" data-appno="23110669" data-id="11365" href="#" title="Edit" ><i class="bx bx-edit"></i></a>
+                              <a class="btn btn-sm btn-danger delete-profile-part" data-part="qualification" data-appno="23110669" data-id="11365" href="#" title="Delete" ><i class="bx bx-trash"></i></a>
+                          </div>
+                          </td>
+		
+                          <td class="text-center"><strong>10th</strong></td>
+                          <td><strong>Kendriya Vidyalaya no 5</strong><br />Kalinga nagar</td>
+                          <td>CENTRAL BOARD OF SECONDARY EDUCATION, ODISHA</td>
+                          <td class="text-center">July 2020</td>
+                          <td class="text-center">600</td>
+                          <td class="text-center">554.00</td>
+                          <td class="text-center">92.33%</td>
+                          <td class="text-center">
+						  	                        	<a href="https://outr-erp.cet.edu.in/students/qual/23110669/m_20260227032828.pdf" target="_blank" title="Marksheet"><i class="bx bxs-file bx-sm"></i></a>
+                        	
+						  	                        	<a href="https://outr-erp.cet.edu.in/students/qual/23110669/c_20260227032828.pdf" target="_blank" title="Certificate"><i class="bx bxs-file bx-sm"></i></a>
+                        	                          </td>
+                      </tr>
+                  	                  	  <tr class="qual-row" id="qual-row-11366">
+
+		                          <td class="no-sort" style="text-align:center;">
+                          <div class="btn-group btn-group-sm" role="group" aria-label="">
+                              <a class="btn btn-sm btn-primary edit-profile-part" data-part="qualification-edit" data-appno="23110669" data-id="11366" href="#" title="Edit" ><i class="bx bx-edit"></i></a>
+                              <a class="btn btn-sm btn-danger delete-profile-part" data-part="qualification" data-appno="23110669" data-id="11366" href="#" title="Delete" ><i class="bx bx-trash"></i></a>
+                          </div>
+                          </td>
+		
+                          <td class="text-center"><strong>Last qualifying exam</strong></td>
+                          <td><strong>Kendriya Vidyalaya no 5</strong><br />Kalinga Nagar</td>
+                          <td>COUNCIL OF HIGHER SECONDARY EDUCATION, ODISHA</td>
+                          <td class="text-center">July 2022</td>
+                          <td class="text-center">600</td>
+                          <td class="text-center">477.00</td>
+                          <td class="text-center">79.50%</td>
+                          <td class="text-center">
+						  	                        	<a href="https://outr-erp.cet.edu.in/students/qual/23110669/m_20260227033107.pdf" target="_blank" title="Marksheet"><i class="bx bxs-file bx-sm"></i></a>
+                        	
+						  	                        	<a href="https://outr-erp.cet.edu.in/students/qual/23110669/c_20260227033107.pdf" target="_blank" title="Certificate"><i class="bx bxs-file bx-sm"></i></a>
+                        	                          </td>
+                      </tr>
+                  	                  	                  
+                                       </tbody>
+                </table>
+                      
+              
+              </div>
+				
+              
+            </dl>
+            
+          </div>
+            
+          
+          
+          
+            
+        </div>
+    
+    </div>
+    
+    
+    
+
+
+	<div class="card-body pt-3 pb-1">
+    
+	    <div class="row">
+          <div class="col-sm-12 px-0 py-1 mb-1 bg-light">
+            <dl class="row dl-striped m-0">
+              <dt class="col-12"><h5>Other Certificates
+
+			            <div class="float-end">
+                <a class="btn btn-sm btn-primary edit-profile-part" data-part="certificate-add" data-appno="23110669" href="#" title="Add Other Certificate" ><i class="bx bxs-add-to-queue"></i></a>
+                </div>
+		
+              </h5></dt>
+              
+              <div class="col-sm-12 table-responsive1">
+              
+                <table id="table_certificate" class="table table-sm table-striped " style="width:100%">
+                  <thead class="bg-dark">
+                      <tr>
+
+		                          <th width="10%" class="no-sort" style="text-align:center;">Action</th>
+		
+                          <th>Certificate</th>
+                          <th width="13%" class="text-center">Certificate File</th>
+                      </tr>
+                  </thead>
+                  <tbody class="row_position cert-row-holder">
+                  	                      <tr class="cert-row-none">
+                          <td colspan="3">Add Other Certificates using the button above ...</td>
+                      </tr>
+                  	                  
+                  </tbody>
+                </table>
+                      
+              
+              </div>
+				
+              
+            </dl>
+            
+          </div>
+            
+        </div>
+    
+    </div>
+    
+
+
+
+  </div>
+
+  
+
+  
+  
+</div>
+
+
+<div class="modal fade" id="modalEditPart" tabindex="-1" aria-labelledby="modalEditPartTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalEditPartTitle">Edit Communication Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      	...
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme no-print">
+              <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  &copy;
+                  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+                    document.write(new Date().getFullYear())
+                  </script>
+                  <a href="https://outr.ac.in/" target="_blank" class="footer-link fw-bolder"
+                    title="Odisha University of Technology and Research">OUTR</a>
+
+                </div>
+                                <div class="mb-2 mb-md-0">
+                                                    </div>
+              </div>
+
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <div class="buy-now" id="go-top">
+      <a href="#" class="btn rounded-pill btn-icon btn-sm btn-buy-now btn-secondary"><span
+          class="tf-icons bx bx-up-arrow"></span></a>
+    </div>
+
+
+    
+    <div class="toast-container position-fixed bottom-0 end-0 p-3 pb-lg-5" style="z-index: 11">
+
+      <div id="err-toast" class="bs-toast toast fade bg-danger" role="alert" aria-live="assertive" aria-atomic="true"
+        data-bs-delay="5000">
+        <div class="toast-header">
+          <i class="bx bx-error-circle me-1"></i>
+          <div class="me-auto fw-semibold">Alert!</div>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          A message...
+        </div>
+      </div>
+
+      <div id="warning-toast" class="bs-toast toast fade bg-warning" role="alert" aria-live="assertive" aria-atomic="true"
+        data-bs-delay="5000">
+        <div class="toast-header">
+          <i class="bx bx-error me-1"></i>
+          <div class="me-auto fw-semibold">Alert!</div>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          A message...
+        </div>
+      </div>
+
+      <div id="info-toast" class="toast align-items-center text-white bg-info border-0" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="bx bx-message-rounded me-1"></i>
+            <small class="toast-body-text">A message...</small>
+          </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="modal" id="myProgressModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="progressModalTitle">Modal title</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col mb-3" id="progressModalBody">
+                
+                <div class="spinner-border spinner-border-lg text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+
+                <div style="line-height:48px;display:inline-block;">
+                  Processing...
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="mySuccessModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="successModalTitle">Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col ">
+                <div class="alert alert-success mb-0" id="successModalBody" role="alert">...</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p id="loading-indicator" style="display:none;">Processing...</p>
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/libs/popper/popper.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/js/bootstrap.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Main JS -->
+
+    <script src="https://outr-erp.cet.edu.in/assets/js/dselect.min.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/js/main.js"></script>
+    <script
+      src="https://outr-erp.cet.edu.in/assets/vendor/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/vendor/libs/dropify/js/dropify.min.js"></script>
+    <script src="https://outr-erp.cet.edu.in/assets/js/sweetalert2.all.min.js"></script>
+
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    
+    <script>
+      var myProgressModal = null;
+      function showProgressBox(progressMsg) {
+        if (typeof progressMsg === 'undefined') {
+          progressMsg = "Processing, one moment please... ";
+        }
+
+        $('#loading-indicator').attr('data-content', progressMsg);
+        if (!($('#loading-indicator').is(':visible'))) {
+          $('#loading-indicator').show();
+        }
+
+        return false;
+      }
+      function hideProgressBox() {
+        if ($('#loading-indicator').is(':visible')) {
+          $('#loading-indicator').hide();
+        }
+      }
+
+      function showProgressModal(progressMsg) {
+        if (typeof progressMsg === 'undefined') {
+          progressMsg = 'Processing...';
+        }
+        $('#myProgressModal #progressModalTitle').html(progressMsg);
+        myProgressModal = new bootstrap.Modal(document.getElementById('myProgressModal'), {
+          keyboard: false,
+          backdrop: 'static'
+        });
+        myProgressModal.show();
+      }
+      function hideProgressModal() {
+        if ($('#myProgressModal').is(':visible') && (myProgressModal)) {
+          myProgressModal.hide();
+        }
+      }
+
+      function showSuccessModal(msg, msgBody) {
+        if (typeof msg === 'undefined') {
+          msg = 'Success';
+        }
+        if (typeof msgBody === 'undefined') {
+          msgBody = '';
+        }
+
+        $('#mySuccessModal #successModalTitle').html(msg);
+        $('#mySuccessModal #successModalBody').html(msgBody);
+
+        mySuccessModal = new bootstrap.Modal(document.getElementById('mySuccessModal'), {
+        });
+        mySuccessModal.show();
+      }
+      function hideSuccessModal() {
+        if ($('#mySuccessModal').is(':visible') && (mySuccessModal)) {
+          mySuccessModal.hide();
+        }
+      }
+
+      function showErrorToast(msg) {
+        var tt = $('#err-toast').clone();
+        $(tt).find('.toast-body').html(msg);
+        $(tt).appendTo('.toast-container');
+        (new bootstrap.Toast(tt)).show();
+      }
+
+      function showWarningToast(msg) {
+        var tt = $('#warning-toast').clone();
+        $(tt).find('.toast-body').html(msg);
+        $(tt).appendTo('.toast-container');
+        (new bootstrap.Toast(tt)).show();
+      }
+
+      function showInfoToast(msg) {
+        var tt = $('#info-toast').clone();
+        $(tt).find('.toast-body-text').html(msg);
+        $(tt).appendTo('.toast-container');
+        (new bootstrap.Toast(tt)).show();
+      }
+
+      function copy2Clipboard(inputId) {
+        var copyText = document.getElementById(inputId);
+        try {
+          copyText.select();
+          copyText.setSelectionRange(0, 99999);
+          navigator.clipboard.writeText(copyText.value);
+        } catch (err) {
+          console.log(err.message);
+        }
+      }
+
+      $(document).on('click', '#collapse-mnu', function () {
+        $(this).closest('html').toggleClass('layout-menu-collapse');
+      });
+
+      $(document).on('click', '#go-top', function (e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+      });
+
+      $(document).ready(function (e) {
+
+        $('#zoom_range').change(function (e) {
+          console.log($(this).val());
+          var z = $(this).val();
+          document.body.style.zoom = z + '%';
+        });
+
+        
+
+                  /*if(window.innerWidth < 1400) {
+            if(!($('html').hasClass('layout-menu-collapse'))) {
+              $('html').addClass('layout-menu-collapse');
+            }
+          }*/
+                      });
+
+      $(document).on('click', '.menu-link.menu-toggle', function () {
+        if ($('html').hasClass('layout-menu-collapse')) {
+          $('html').removeClass('layout-menu-collapse');
+        };
+      });
+
+
+      window.setInterval(function () {
+        $.ajax({
+          type: "GET",
+          url: "https://outr-erp.cet.edu.in/getinfo",
+          dataType: 'json',
+          beforeSend: function (xhr) {
+          }
+        })
+          .done(function (res_data) {
+            if ((res_data[0].resSuccess == 1)) {
+              if (res_data[0].msg != "") {
+                showInfoToast(res_data[0].msg);
+              }
+              if (res_data[0].content.messages.length > 0) {
+                $.each(res_data[0].content.messages, function (idx, val) {
+                  showInfoToast(val);
+                });
+                //for(var i = 0; i < res_data[0].content.messages.length; i++) {
+                //	showInfoToast(res_data[0].content.messages[i]);
+                //}
+              }
+            } else if (res_data[0].resSuccess == 2) {
+              if (res_data[0].errtype == 'maintenance') {
+                                  showErrorToast(res_data[0].msg);
+                  window.setTimeout(function () { window.location.href = "https://outr-erp.cet.edu.in/logout"; }, 1000);
+                              } else if (res_data[0].errtype == 'loggedout') {
+                showErrorToast(res_data[0].msg);
+                window.setTimeout(function () { window.location.href = "https://outr-erp.cet.edu.in/logout"; }, 1000);
+              } else {
+                showErrorToast(res_data[0].msg);
+              }
+
+              if (res_data[0].errtype != 'maintenance') {
+                if ($('.maintenance-bar').is(':visible') == true) {
+                  $('.maintenance-bar').slideUp('slow');
+                }
+              }
+
+            }
+          })
+          .fail(function () {
+            //showErrorToast("...");
+          })
+          .always(function () {
+            //alert( "complete" );
+          });
+      }, 30000);
+
+
+      $(document).on('click', '.close-prn', function (e) {
+        removePrnDiv('.prn-area');
+      });
+
+      function prnDiv(outerDiv, bkgColor, customTitle) {
+        var ccc = $(outerDiv).clone();
+        if ($(ccc).hasClass('card')) {
+          $(ccc).addClass('shadow-none');
+          $(ccc).removeClass('mb-4').removeClass('mb-3');
+          $(ccc).find('.card-header').first().removeClass('bg-light');
+        }
+        if ((typeof bkgColor !== 'undefined') && bkgColor != '') {
+          $(ccc).css('background-color', bkgColor);
+        }
+        $(ccc).css('padding', '5px');
+
+        if ((typeof customTitle !== 'undefined') && customTitle != '') {
+          $(ccc).prepend('<h4 class="mt-2 mb-0 text-center">' + customTitle + '</h4>');
+        }
+
+        if ($(ccc).find('.prnhdr').length == 0) {
+          $(ccc).prepend('<div class="prnhdr"><div align="center"><img src="https://outr-erp.cet.edu.in/assets/images/logo.png" width="72" height="72" /></div>' +
+            '<h2 style="color: #003399;font-size:16px;font-weight:bold;text-align:center;margin:5px 0 0 0;padding:0;letter-spacing:3px;">ଓଡିଶା ବୈଷୟିକ ଓ ଗବେଷଣା ବିଶ୍ବବିଦ୍ୟାଳୟ</h2>' +
+            '<h2 style="color: #cc0000;font-size:18px;font-weight:bold;text-align:center;margin:0;padding:0;">ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH</h2>' +
+            '<h2 style="color: #333333;font-size:14px;text-align:center;margin:0;padding:0;">GHATIKIA BHUBANESWAR-751029, ODISHA, INDIA</h2></div>');
+        }
+
+        $(ccc).append('<div class="no-print" style="position:fixed;top:5px;right:5px;width:70px;padding:0;"><a href="#" title="Close print area" class="btn rounded-pill btn-secondary close-prn">X</a></div>');
+        //console.log($(outerDiv).clone());
+        $('body').append(ccc);
+        $('body').addClass('custom-prn-mode');
+        window.setTimeout(function () { window.print(); }, 500);
+      }
+      function removePrnDiv(outerDiv) {
+        $('body > ' + outerDiv).last().remove();
+        $('body').removeClass('custom-prn-mode');
+      }
+
+    </script>
+
+    
+    <!-- Vendors JS -->
+<script src="https://outr-erp.cet.edu.in/assets/js/jquery.form.min.js"></script>
+
+<script>
+var objModalEditPart = null;
+
+$(document).on('click', '.edit-profile-part', function(e) {
+	e.preventDefault();
+	var lnkObj = $(this);
+	var regNo = $(lnkObj).attr('data-appno');
+	var qualId = $(lnkObj).attr('data-id');
+	var certId = $(lnkObj).attr('data-id');
+	var part = $(lnkObj).attr('data-part');
+	var p = '';
+	var title = '#' + regNo + ' - ';
+	
+		var prefix = 'https://outr-erp.cet.edu.in/';
+	var md = '-stud-';
+		
+	p = prefix + 'edit' + md + part;
+	
+	if(part == 'basic') {
+		title += "Basic Details";
+		p += ("/" + regNo);
+	} else if(part == 'allotment') {
+		title += "Allotment Details";
+		p += ("/" + regNo);
+	} else if(part == 'personal') {
+		title += "Personal Details";
+		p += ("/" + regNo);
+	} else if(part == 'communication') {
+		title += "Communication Details";
+		p += ("/" + regNo);
+	} else if(part == 'qualification-add') {
+		title += "Add Qualification";
+		//p = 'add-part-qualification';
+		p = prefix + 'add' + md + 'qualification';
+		p += ("/" + regNo);
+	} else if(part == 'qualification-edit') {
+		title += "Modify Qualification info";
+		//p = 'edit-part-qualification';
+		p = prefix + 'edit' + md + 'qualification';
+		p += ("/" + regNo + "/" + qualId);
+	} else if(part == 'certificate-add') {
+		title += "Add Certificate";
+		//p = 'add-part-certificate';
+		p = prefix + 'add' + md + 'certificate';
+		p += ("/" + regNo);
+	} else if(part == 'certificate-edit') {
+		title += "Modify Certificate info";
+		//p = 'edit-part-certificate';
+		p = prefix + 'edit' + md + 'certificate';
+		p += ("/" + regNo + "/" + certId);
+	}
+	
+	
+	$('#modalEditPart .modal-body').html("");
+	$('#modalEditPart #modalEditPartTitle').html(title);
+
+	$.ajax({
+		type: "GET",
+		url:  p ,
+		dataType: 'json',
+		beforeSend: function (xhr) {
+			//$(".msg").html('').hide();
+			showProgressBox();
+		}
+	})
+	.done(function(res_data) {
+		if ((res_data[0].resSuccess == 1)) {
+			hideProgressBox();
+			//console.log(res_data);
+			
+			$('#modalEditPart .modal-body').html(res_data[0].content.html);
+			//$('#modalEditPart #modalEditPartTitle').html('Student #' + regNo);
+			objModalEditPart = new bootstrap.Modal(document.getElementById('modalEditPart'), {
+				//keyboard: false,
+				//backdrop: 'static'
+			});
+			objModalEditPart.show();
+			
+			//return false;
+			
+			//showProgressBox(res_data[0].msg);
+			//window.location.reload();
+			//alert('deleted');
+			//$('#coms_api_key').val(res_data[0].content.apikey);
+			//$('#last_api_key_generated').html('(' + res_data[0].content.keygentime + ')');
+		}else if (res_data[0].resSuccess == 2){
+			hideProgressBox();
+			showErrorToast(res_data[0].msg);
+			//$(".msg").html(res_data[0].msg).show();	
+			//$("html, body").animate({ scrollTop: 150 }, "slow");							
+		}
+	})
+	.fail(function() {
+		hideProgressBox();
+		showErrorToast("Action could not be completed");
+
+		//$(".msg").html("Exception occurred!").show();
+		//$("html, body").animate({ scrollTop: 150 }, "slow");
+	})
+	.always(function() {
+		//alert( "complete" );
+	});
+});
+
+$(document).on('click', '.delete-profile-part', function(e) {
+	e.preventDefault();
+	var lnkObj = $(this);
+	var regNo = $(lnkObj).attr('data-appno');
+	var qualId = $(lnkObj).attr('data-id');
+	var certId = $(lnkObj).attr('data-id');
+	var part = $(lnkObj).attr('data-part');
+	var p = 'edit-part-' + part;
+	var d = {};
+	var title = '#' + regNo + ' - ';
+		var prefix = 'https://outr-erp.cet.edu.in/';
+	var md = '-stud-';
+		if(part == 'qualification') {
+		title += "Delete Qualification";
+		//p = 'delete-part-qualification';
+		p = prefix + 'delete' + md + part;
+		p += ("/" + regNo + "/" + qualId);
+		px = 'qual';
+		d = {ctoken:'frmStudDeletePartQualification13a93ab48b73e8671fc685dbea63587af094bb8fbb26d63cc9b1613d84c07d0d4'};
+	} else if(part == 'certificate') {
+		title += "Delete Certificate";
+		//p = 'delete-part-certificate';
+		p = prefix + 'delete' + md + part;
+		p += ("/" + regNo + "/" + certId);
+		px = 'cert';
+		d = {ctoken:'frmStudDeletePartCertificate1907b21e992d4c8eb3a87927db91bf87899da12407ddec5a869651abec21982e9'};
+	}
+	
+	
+	Swal.fire({
+		title: "Delete this record ?",
+		showDenyButton: false,
+		showCancelButton: true,
+		confirmButtonText: "Yes",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			//Swal.fire("Saved!", "", "success");
+			$.ajax({
+				type: "POST",
+				url: p ,
+				dataType: 'json',
+				data: d,
+				beforeSend: function (xhr) {
+					//$(".msg").html('').hide();
+					showProgressBox();
+				}
+			})
+			.done(function(res_data) {
+				if ((res_data[0].resSuccess == 1)) {
+					hideProgressBox();
+					//console.log(res_data);
+					var id = res_data[0].content.id
+					$('#' + px + '-row-' + id).fadeOut('fast', function(){
+						$('#' + px + '-row-' + id).remove();
+						if($('.' + px + '-row').length == 0) {
+							$('.' + px + '-row-none').show();
+						}
+					});
+				}else if (res_data[0].resSuccess == 2){
+					hideProgressBox();
+					showErrorToast(res_data[0].msg);
+					//$(".msg").html(res_data[0].msg).show();	
+					//$("html, body").animate({ scrollTop: 150 }, "slow");							
+				}
+			})
+			.fail(function() {
+				hideProgressBox();
+				showErrorToast("Action could not be completed");
+				//$(".msg").html("Exception occurred!").show();
+				//$("html, body").animate({ scrollTop: 150 }, "slow");
+			})
+			.always(function() {
+				//alert( "complete" );
+			});
+		}
+	});
+	
+});
+
+
+$('#selectedClientList').on('click', 'a', function(e){
+	e.preventDefault();
+	$(this).appendTo('#availableClientList');
+});
+
+$('#availableClientList').on('click', 'a', function(e){
+	e.preventDefault();
+	$(this).appendTo('#selectedClientList');
+});
+
+$(document).ready(function(e) {
+	$("#searchSelectedClient").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+		$("#selectedClientList a").filter(function() {
+		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+	
+	$("#searchAvailableClient").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+		$("#availableClientList a").filter(function() {
+		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		});
+	});
+	
+	
+});
+
+function prepareData() {
+	var uIds = "";
+	$("#selectedClientList a").each(function(index, element) {
+        if(uIds != "") {
+			uIds += ",";
+		}
+		uIds += $(this).attr('data-id');
+    });
+	$('#client_ids').val(uIds);
+}
+
+
+
+//function hideProgressModal() {
+//	if($('#modalCreateGroup').is(':visible') && (objModalCreateGroup) ) {
+//		objModalCreateGroup.hide();
+//	}
+//}
+
+var btnSubm = null;
+$(document).ready(function(e) {
+	
+	/*$(document).on('change', '#backups', function(){
+		var url = './index.php?n=' + Math.floor(Math.random() * 1000);
+		if($(this).val() != '') {
+			url = './index.php?b=' + $(this).val() + '&n=' + Math.floor(Math.random() * 1000);
+		}
+		window.location.href = url;
+	});*/
+	
+	$(document).on('click', '.cmd-reset', function(ee){
+		window.location.reload();
+	});
+	$(document).on('click', '.cmd-exit', function(ee){
+		window.location.href="https://outr-erp.cet.edu.in";
+	});
+		
+	
+	
+});
+
+
+
+function onlyNumbers(e,type)
+{
+	var keynum;
+	var keychar;
+	var numcheck;
+	if(window.event) // IE
+	{
+		keynum = e.keyCode;
+	}
+	else if(e.which) // Netscape/Firefox/Opera
+	{
+		keynum = e.which;
+	}
+	keychar = String.fromCharCode(keynum);
+	numcheck = /\d/;
+	
+	switch (keynum){
+		case 8:    //backspace
+		case 9:    //tab
+		case 35:   //end
+		case 36:   //home
+		case 37:   //left arrow
+		case 38:   //right arrow
+		case 39:   //insert
+		case 45:   //delete
+		case 46:   //0
+		case 48:   //1
+		case 49:   //2
+		case 50:   //3
+		case 51:   //4
+		case 52:   //5
+		case 54:   //6
+		case 55:   //7
+		case 56:   //8
+		case 57:   //9
+		case 96:   //0
+		case 97:   //1
+		case 98:   //2
+		case 99:   //3
+		case 100:  //4
+		case 101:  //5
+		case 102:  //6
+		case 103:  //7
+		case 104:  //8
+		case 105:  //9
+			result2 = true;
+			break;
+		case 109: // dash -
+			if (type == 'phone'){
+				result2 = true;
+			} else {
+				result2 = false;
+			}
+			break;
+		default:
+			result2 = numcheck.test(keychar);
+			break;
+	}
+	
+	return result2;
+}
+</script>
+
+
+
+  
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"21aed2649823401da5068294dd1ed73d","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+</html>
